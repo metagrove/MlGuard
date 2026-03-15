@@ -1,0 +1,12 @@
+[project]
+
+name = "mlguard"
+version = "0.1.0"
+description = "Machine learning experiment manager and leakage detection toolkit"
+authors = [{name="Tarun M"}]
+
+dependencies = [
+    "numpy",
+    "pandas",
+    "scikit-learn"
+]
