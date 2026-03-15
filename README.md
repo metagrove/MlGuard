@@ -1,36 +1,66 @@
 # MLGuard
 
+![PyPI](https://img.shields.io/pypi/v/mlguardlabs)
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Status](https://img.shields.io/badge/status-active-success)
 
-**MLGuard** is a lightweight machine learning **experiment management and data validation toolkit** designed to help detect potential data leakage and benchmark multiple models quickly.
+**MLGuard** is a lightweight **machine learning experiment management and data validation toolkit** designed to help data scientists quickly validate datasets, detect potential data leakage, and benchmark multiple machine learning models.
+
+It provides a simple interface to run experiments and compare models with minimal setup.
 
 ---
 
-## 🚀 Features
+# Why MLGuard?
 
-* 🔍 **Data Leakage Detection**
-  Detects potential target leakage by analyzing correlations between features and the target.
+When working with machine learning pipelines, developers often face problems such as:
 
-* ⚙️ **Experiment Manager**
-  Automatically runs multiple ML models and evaluates them.
+* Undetected **data leakage**
+* Repeated **model experimentation scripts**
+* Difficulty comparing models quickly
+* Poor experiment organization
 
-* 📊 **Model Comparison**
-  Compare model performance using appropriate metrics.
+MLGuard helps solve these problems by providing:
 
-* 🧠 **Automatic Problem Detection**
-  Detects whether the task is **regression or classification**.
+* Automated **data leakage detection**
+* Automatic **problem type detection**
+* Built-in **experiment manager**
+* Simple **model comparison tools**
 
 ---
 
-## 📦 Installation
+# Features
+
+### Data Leakage Detection
+
+Detects potential **target leakage** by analyzing correlations between features and the target variable.
+
+### Experiment Manager
+
+Runs multiple machine learning models automatically and evaluates their performance.
+
+### Model Comparison
+
+Compares model performance using appropriate evaluation metrics.
+
+### Automatic Problem Detection
+
+Detects whether the task is:
+
+* **Regression**
+* **Classification**
+
+---
+
+# Installation
+
+Install from PyPI:
 
 ```bash
-pip install mlguard
+pip install mlguardlabs
 ```
 
-or install locally:
+Install locally for development:
 
 ```bash
 pip install -e .
@@ -38,13 +68,13 @@ pip install -e .
 
 ---
 
-## ⚡ Quick Example
+# Quick Example
 
-### Regression Example
+## Regression Example
 
 ```python
 from sklearn.datasets import fetch_california_housing
-from mlguard.experiments import ExperimentManager
+from mlguard import ExperimentManager
 
 data = fetch_california_housing(as_frame=True)
 
@@ -71,11 +101,11 @@ Detected problem type: regression
 
 ---
 
-### Classification Example
+# Classification Example
 
 ```python
 from sklearn.datasets import load_iris
-from mlguard.experiments import ExperimentManager
+from mlguard import ExperimentManager
 
 data = load_iris(as_frame=True)
 
@@ -91,7 +121,47 @@ print(exp.compare())
 
 ---
 
-## 🏗 Project Structure
+# Data Leakage Detection Example
+
+```python
+from mlguard import LeakageDetector
+
+detector = LeakageDetector()
+
+detector.fit(X, y)
+
+print(detector.report())
+```
+
+This prints features that have unusually high correlation with the target.
+
+---
+
+# How MLGuard Works
+
+MLGuard runs a lightweight validation and experimentation pipeline:
+
+```
+Dataset
+   ↓
+Leakage Detection
+   ↓
+Problem Type Detection
+   ↓
+Model Experiments
+   ↓
+Model Evaluation
+   ↓
+Model Comparison
+```
+
+This allows users to quickly answer:
+
+**Which model works best for my dataset?**
+
+---
+
+# Project Structure
 
 ```
 mlguard/
@@ -115,33 +185,33 @@ mlguard/
 
 ---
 
-## 🧠 How MLGuard Works
+# Example Workflow
 
-MLGuard runs a lightweight validation and experimentation pipeline:
+Typical machine learning workflow using MLGuard:
 
 ```
-Dataset
-   ↓
-Leakage Detection
-   ↓
-Problem Type Detection
-   ↓
-Model Experiments
-   ↓
-Model Evaluation
-   ↓
-Model Comparison
+EDA
+↓
+Feature Engineering
+↓
+Feature Selection
+↓
+MLGuard Experiment Manager
+↓
+Best Model Selection
+↓
+Hyperparameter Tuning
+↓
+Final Model
 ```
 
-This helps ML practitioners quickly answer:
-
-> **Which model works best for my dataset?**
+MLGuard helps simplify the **experimentation stage**.
 
 ---
 
-## 🛣 Roadmap
+# Roadmap
 
-Planned improvements:
+Future planned features include:
 
 * Cross-validation experiment engine
 * Dataset inspector
@@ -151,16 +221,18 @@ Planned improvements:
 
 ---
 
-## 🤝 Contributing
+# Contributing
 
 Contributions are welcome!
 
+Steps:
+
 1. Fork the repository
-2. Create a new branch
+2. Create a feature branch
 3. Submit a pull request
 
 ---
 
-## 📜 License
+# License
 
-MIT License © 2026 Tarun
+MIT License © 2026 Tarun M
