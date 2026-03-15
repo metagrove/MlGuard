@@ -1,12 +1,21 @@
 [project]
-
 name = "mlguard"
 version = "0.1.0"
 description = "Machine learning experiment manager and leakage detection toolkit"
-authors = [{name="Tarun M"}]
+authors = [
+    {name = "Tarun M"}
+]
+
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
 
 dependencies = [
     "numpy",
     "pandas",
     "scikit-learn"
 ]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
