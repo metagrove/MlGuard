@@ -1,9 +1,9 @@
 # MLGuard
 
 ![PyPI](https://img.shields.io/pypi/v/mlguardlabs?cacheSeconds=60)
-![Downloads](https://img.shields.io/pypi/dm/mlguardlabs)
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
+![Status](https://img.shields.io/badge/status-active-success)
 
 **MLGuard** is a lightweight **machine learning experiment management and data validation toolkit** designed to help data scientists quickly validate datasets, detect potential data leakage, and benchmark multiple machine learning models.
 
